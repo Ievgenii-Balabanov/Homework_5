@@ -3,7 +3,6 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-
     def add_arguments(self, parser):
         parser.add_argument("user_id", nargs="+", type=int, help="User ID")
 
@@ -15,7 +14,7 @@ class Command(BaseCommand):
             user_queryset.delete()
             self.stdout.write(self.style.SUCCESS("User successfully deleted"))
 
-# ---------------------------------------------------------------
+        # ---------------------------------------------------------------
 
         """
         implementation using "for" loops
