@@ -1,3 +1,25 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Triangle cathetus</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<form action="{% url 'catalog:triangle'%}" method="POST">#}
+{#    {% csrf_token %}#}
+{#    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}#}
+{#    {% if gip %}#}
+{#        <h3>Triangle hypotenuse is {{ gip }}</h3>#}
+{#    {% else %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Submit">#}
+{#    {% endif %}#}
+{#</form>#}
+{##}
+{#</body>#}
+{#</html>#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +28,14 @@
 </head>
 <body>
 
-<form action="/triangle/" method="POST">
+<form action="{% url 'catalog:triangle'%}" method="POST">
     {% csrf_token %}
-    {% if gip %}
-        <h3>Triangle hypotenuse is {{ gip }}</h3>
-    {% else %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    {% endif %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <p>
+        {{ form.first_leg }} + {{ form.second_leg }} =
+        {% if gip %} {{ gip }} {% else %} ? {% endif %}
+    <p><input type="submit" value="Submit">
+    </p>
 </form>
 
 </body>

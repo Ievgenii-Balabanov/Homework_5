@@ -20,7 +20,7 @@ def get_cathetus(request):
             second_leg = form.cleaned_data["second_leg"]
             global gip
             gip = sqrt(first_leg**2 + second_leg**2)
-            return render(request, "catalog/forms.html", {"gip": gip})
+            return render(request, "catalog/forms.html", {"form": form, "gip": gip})
     else:
         form = Triangle()
 
