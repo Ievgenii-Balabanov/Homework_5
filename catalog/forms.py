@@ -3,12 +3,12 @@ from django.core.exceptions import ValidationError
 
 
 class Triangle(forms.Form):
-    first_leg = forms.IntegerField(label="First leg", max_value=50, required=True,
-                                   widget=forms.TextInput(attrs={"placeholder": "First leg"}))
-    second_leg = forms.IntegerField(label="Second leg", max_value=50, required=True,
-                                    widget=forms.TextInput(attrs={"placeholder": "Second leg"}))
-
-    field_errors = {'sender': ['Enter a valid email address.'], 'subject': ['This field is required.']}
+    first_leg = forms.IntegerField(
+        label="First leg", max_value=50, required=True, widget=forms.TextInput(attrs={"placeholder": "First leg"})
+    )
+    second_leg = forms.IntegerField(
+        label="Second leg", max_value=50, required=True, widget=forms.TextInput(attrs={"placeholder": "Second leg"})
+    )
 
     def clean_first_leg(self):
         first_leg_data = self.cleaned_data["first_leg"]

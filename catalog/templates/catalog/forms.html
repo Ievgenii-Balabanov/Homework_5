@@ -30,7 +30,7 @@
 
 <form action="{% url 'catalog:triangle'%}" method="POST">
     {% csrf_token %}
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{{ form.errors }}
     <p>
         {{ form.first_leg }} + {{ form.second_leg }} =
         {% if gip %} {{ gip }} {% else %} ? {% endif %}
