@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello</title>
-</head>
-<body>
-<h2>Hello</h2>
-</body>
-</html>
+{% extends "catalog/base.html" %}
+<a href="{% url "catalog:create_person" %}">Create Person</a>
+{% load static %}
+
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static "catalog/css/main.css" %}">
+{% endblock css_additional %}
+{% block content %}
+<fieldset>
+    <legend>
+        <h1>Persons List:</h1>
+    </legend>
+</fieldset>
+{% if person_list %}
+    <ul>
+    {% for person in person_list %}
+        <li><a href="{% url "catalog:detail" person.id%}">{{ person.first_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No person are available</p>
+{% endif %}
+{% endblock content %}

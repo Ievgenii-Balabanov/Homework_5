@@ -59,7 +59,17 @@ class Supplier(models.Model):
         return f"Company name: {self.company_name}, Address: {self.address}"
 
 
+class Person(models.Model):  # noqa: DJ10,DJ11
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.first_name
+
+
 admin.site.register(Client)
 admin.site.register(City)
 admin.site.register(Product)
 admin.site.register(Supplier)
+admin.site.register(Person)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create (Update) Person</title>
+</head>
+{% extends "catalog/base.html" %}
+<body>
+{% block content %}
+    <a href="{% url "catalog:create_person" %}">Create Person</a>
+        <form action="{% if person %} {% url "catalog:update_person" person.id %} {% else %}
+    {% url "catalog:create_person" %} {% endif %}" method="POST">
+            {% csrf_token %}
+    {#        {{ form_create.errors }}#}
+            {{ form_create.as_p }}
+            <input type="submit" value="Create">
+        </form>
+{% endblock content %}
+</body>
+</html>

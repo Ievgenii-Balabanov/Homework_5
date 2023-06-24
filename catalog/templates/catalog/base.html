@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/fielset.css" %}">
+    {% block css_additional %}{% endblock css_additional %}
+</head>
+<body>
+
+{% block content %}
+{% endblock content %}
+<p>
+<a href="{% url "catalog:index" %}">Return to the "HOME" page</a>
+<p>
+<a href="{% url "catalog:create_person" %}">Go to the "Create person" page</a>
+{#<p>#}
+{#<a href="{% url "is_exist_check" %}">Return to the "is_exist_check" page</a>#}
+{#<p>#}
+{#<a href="{% url "param_update" %}">Return to the "Player parameters updating" page</a>#}
+{#<p>#}
+{#<a href="{% url "login" %}">Return to the "Login" page</a>#}
+{#<p>#}
+{#<a href="{% url "player_registration" %}">Return to the "Player registration" page</a>#}
+{#<p>#}
+{#<a href="{% url "player_registration" %}">Return to the "Achievements addition" page</a>#}

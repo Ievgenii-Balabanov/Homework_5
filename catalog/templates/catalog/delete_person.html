@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Person</title>
+</head>
+{% extends "catalog/base.html" %}
+
+<body>
+{% block content %}
+    <p>Are you sure you want to delete specified person
+        (id#{{ person.id }}): {{ person.first_name }} {{ person.last_name }}?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete."/>
+  </form>
+{% endblock content %}
+</body>
+{#<a href="{% url "catalog:delete_person" person.id %}">Delete Person</a>#}
+{#    <form action="{% if person %} {% url "catalog:delete_person" person.id %} {% else %}#}
+{#{% url "catalog:index" %} {% endif %}" method="POST">#}

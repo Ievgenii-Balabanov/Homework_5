@@ -1,0 +1,23 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static "catalog/css/detail.css" %}">
+{% endblock css_additional %}
+{% block content %}
+    <form action="{% url 'catalog:detail' person.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+         {{ form.errors }}
+        <legend><h1>Created person # {{ person.id }}</h1></legend>
+        <ul>
+            <li>First name: {{ person.first_name }}</li>
+            <li>Last name: {{ person.last_name }}</li>
+            <li>Email: {{ person.email }}</li>
+        </ul>
+    </fieldset>
+    </form>
+    <p>
+<a href="{% url "catalog:update_person" person.id %}">Update Person</a>
+<p>
+<a href="{% url "catalog:delete_person" person.id %}">Delete Person</a>
+{% endblock content %}
