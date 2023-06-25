@@ -2,6 +2,7 @@
 {% load static %}
 {% block css_additional %}
     <link rel="stylesheet" href="{% static "catalog/css/detail.css" %}">
+    <link rel="stylesheet" href="{% static "css/button.css" %}">
 {% endblock css_additional %}
 {% block content %}
     <form action="{% url 'catalog:detail' person.id %}" method="post">
