@@ -5,16 +5,20 @@
     <title>Create (Update) Person</title>
 </head>
 {% extends "catalog/base.html" %}
+{% load static %}
 <body>
 {% block content %}
-    <a href="{% url "catalog:create_person" %}">Create Person</a>
+    <div class="field">
+{#    <a href="{% url "catalog:create_person" %}">Create Person</a>#}
         <form action="{% if person %} {% url "catalog:update_person" person.id %} {% else %}
     {% url "catalog:create_person" %} {% endif %}" method="POST">
             {% csrf_token %}
     {#        {{ form_create.errors }}#}
             {{ form_create.as_p }}
-            <input type="submit" value="Create">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
         </form>
+    </div>
 {% endblock content %}
 </body>
 </html>

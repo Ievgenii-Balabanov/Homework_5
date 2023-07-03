@@ -2,9 +2,9 @@
 fieldset {
     margin-left: 2%;
     width: 300px;
-    color: darkblue;
+    color: black;
     border-radius: 35px;
-    padding: 20px;
+    padding: 5px;
     height: 50px;
-    background: lightblue;
+    background: lightcyan;
 }

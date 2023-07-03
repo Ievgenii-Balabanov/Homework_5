@@ -68,8 +68,18 @@ class Person(models.Model):  # noqa: DJ10,DJ11
         return self.first_name
 
 
-admin.site.register(Client)
-admin.site.register(City)
-admin.site.register(Product)
-admin.site.register(Supplier)
-admin.site.register(Person)
+class Logging(models.Model):  # noqa:DJ10,DJ11
+    METHOD_CHOICES = [
+        ("GET", "GET"),
+        ("POST", "POST"),
+    ]
+
+    path = models.URLField(max_length=200)
+    method = models.CharField(max_length=5, choices=METHOD_CHOICES)
+    created_date = models.DateTimeField(auto_now_add=True)
+    query_data = models.CharField(max_length=200, default=None)
+    body_data = models.CharField(max_length=200, default=None)
+    json_data = models.JSONField(default=dict, blank=True)
+
+    def __str__(self):
+        return self.path

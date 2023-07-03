@@ -1,7 +1,9 @@
 form {
-    margin-left: 35%;
+    /*margin-left: 35%;*/
+    height: 200px;
     width: 400px;
-    margin-top: 20px;
-    border-left: 8px solid skyblue;
+    margin-top: 40px;
     background-color: lemonchiffon;
+    border-style: double;
+    border-width: thick;
 }
